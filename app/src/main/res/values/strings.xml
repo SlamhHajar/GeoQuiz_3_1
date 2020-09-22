@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GeoQuiz_3_1</string>
+    <string name="question_text">Sanaa is a capital of Yemen</string>
+    <string name="question_text1">Aden is a captail of Yemen</string>
+    <string name="question_text2">Treem is a valley on Yemen</string>
+    <string name="question_text3">Dar AlHajar is a museum  on Dubai</string>
+    <string name="question_text4">Soqtra is a governor on Yemen</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+    <string name="ExplinePrev">Previous</string>
+    <string name="ExplineNext">Next</string>
+</resources>
