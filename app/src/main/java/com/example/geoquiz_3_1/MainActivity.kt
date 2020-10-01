@@ -29,11 +29,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cheatButton: Button
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)    }
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putInt(KEY_INDEX, quizViewModel.currentIndex)
 
+    }
  private var questAnswered=0
     private var trueAnswer=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(R.layout.activity_main)
 ////////////////////////////////////////////////Initial of Variable//////////////////////////////////////
         trueButton=findViewById(R.id.true_button)
@@ -82,13 +88,26 @@ class MainActivity : AppCompatActivity() {
         }
         updateQuestion()
     }
+    var chanceOfCheat=0
     override fun onActivityResult(requestCode: Int,resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_OK) {
             return        }
         if (requestCode == REQUEST_CODE_CHEAT) {
             quizViewModel.isCheater =
-                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false        }    }
+                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+            chanceOfCheat= data!!.extras!!.getInt("chanceOfCheat")
+
+            if(chanceOfCheat==0||chanceOfCheat==1||chanceOfCheat==2){
+                Toast.makeText(this, "You have only ${3-chanceOfCheat  } just", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                cheatButton.isEnabled=false
+                Toast.makeText(this, "You finish your chance", Toast.LENGTH_SHORT).show()
+
+
+
+        }}    }
     /////////////////////////////////////////////UpdateQuestion///////////////////////////////////////////////////
     private fun updateQuestion() {
         val questionTextResId =quizViewModel.currentQuestionText

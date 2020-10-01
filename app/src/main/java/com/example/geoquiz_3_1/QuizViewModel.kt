@@ -10,7 +10,7 @@ class QuizViewModel: ViewModel() {
 //           }
     var currentIndex = 0
     var isCheater = false
-
+var numCheat=0
  //  var questionShow = listOf()
  var questionEasy = listOf(
         Question(R.string.question_text1_easy, false,false,1),
