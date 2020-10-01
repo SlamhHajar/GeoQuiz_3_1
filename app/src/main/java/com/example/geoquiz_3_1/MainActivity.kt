@@ -105,9 +105,7 @@ class MainActivity : AppCompatActivity() {
                 cheatButton.isEnabled=false
                 Toast.makeText(this, "You finish your chance", Toast.LENGTH_SHORT).show()
 
-
-
-        }}    }
+  }}    }
     /////////////////////////////////////////////UpdateQuestion///////////////////////////////////////////////////
     private fun updateQuestion() {
         val questionTextResId =quizViewModel.currentQuestionText
@@ -170,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+////////////////////////////////Cheating
     fun isCheatting() {
         var msg = "You are cheat your score is decrement"
         var tost = Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
